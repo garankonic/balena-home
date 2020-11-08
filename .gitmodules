@@ -1,0 +1,4 @@
+[submodule "docker-homebridge"]
+	path = docker-homebridge
+	url = git@github.com:garankonic/docker-homebridge.git
+	branch = mykyta_dev

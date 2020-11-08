@@ -1,0 +1,26 @@
+version: '2'
+volumes:
+  resin-data:
+services:
+  homebridge:
+    build: 
+      context: ./docker-homebridge
+      args:
+        S6_ARCH: armhf
+    container_name: homebridge
+    restart: always
+    network_mode: host
+    privileged: true
+    environment:
+      - TZ=Europe/Berlin
+      - PGID=1000
+      - PUID=1000
+      - HOMEBRIDGE_CONFIG_UI=1
+      - HOMEBRIDGE_CONFIG_UI_PORT=8080
+      - UDEV=1
+    volumes:
+      - 'resin-data:/data'
+    devices:
+      - '/dev/gpiomem:/dev/gpiomem'
+    cap_add:
+      - SYS_RAWIO
