@@ -7,7 +7,7 @@ services:
       context: ./docker-homebridge
       args:
         S6_ARCH: armhf
-    container_name: homebridge
+    container_name: docker-homebridge
     restart: always
     network_mode: host
     privileged: true
